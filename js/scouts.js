@@ -47,14 +47,15 @@ class CUMScout {
             $(divInfo).addClass("row").addClass("cum-info");
             $(divInfo).css("color", "black").css("border", "1px solid #d31a2b").css("margin", "1.2em").css("font-size", "12px");
             $(divInfo).append('<th class="col-xs-12 text-center" style="background-color:#eee; color:#d31a2b; font-weight: bold;"> Usuario: '+ that.cum.toUpperCase() +'</th>')
+			$(that.tableMaster).append(divInfo);
             if(($($.parseHTML(that.response)).find("input:not(:button)")).length == 0)
-              $(divInfo).append("Sin Información")
+              $(that.tableMaster).append("Sin Información")
             else {
               $($.parseHTML(that.response)).find("input:not(:button)").each((index, element) => {
-                 $(divInfo).append('<tr class="row" style="border-bottom: solid 1px #eee"><th class="col-xs-2">' + element.name + ': </th> <th class="col-xs-10"> ' + element.value + '</th></tr>')
+                 $(that.tableMaster).append('<tr class="row" style="border-bottom: solid 1px #eee"><th class="col-xs-2">' + element.name + ': </th> <th class="col-xs-10"> ' + element.value + '</th></tr>')
               })
             }
-            $(that.tableMaster).append(divInfo);
+            
           }, 500);
       },
       error: function (request, textStatus, errorThrown) {
@@ -97,7 +98,7 @@ class CUMScout {
     // $("body").append(divConsultando)
 	if($cums.length > 0){
 		let table = document.createElement("table")
-		table.id = "testTable"
+		table.id = "tblScouts"
 		$cums.each((index, cum) => {
 		  // console.log(index + "-" +$cums.length);
 		  if(!(cum==undefined || cum == ""))
@@ -116,13 +117,14 @@ class CUMScout {
   })
   
   $("#btnExportar").on("click", ()=>{
+	  console.log("entro");
 	  var uri = 'data:application/vnd.ms-excel;base64,'
     , template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--><meta http-equiv="content-type" content="text/plain; charset=UTF-8"/></head><body><table>{table}</table></body></html>'
     , base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
     , format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
 	  return function(table, name) {
-		if (!table.nodeType) table = document.getElementById(table)
-		var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+		if (!table.nodeType) table = document.getElementById("tblScouts")
+		var ctx = {worksheet: "Info Scouts" || 'Worksheet', table: table.innerHTML}
 		window.location.href = uri + base64(format(template, ctx))
 	  }
   })
