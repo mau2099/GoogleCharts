@@ -43,10 +43,10 @@ class CUMScout {
           setTimeout(function(){
             console.log("success");
             that.response = data;
-    	      let divInfo = document.createElement("table")
+    	      let divInfo = document.createElement("tr")
             $(divInfo).addClass("row").addClass("cum-info");
             $(divInfo).css("color", "black").css("border", "1px solid #d31a2b").css("margin", "1.2em").css("font-size", "12px");
-            $(divInfo).append('<tr class="col-xs-12 text-center" style="background-color:#eee; color:#d31a2b; font-weight: bold;"> Usuario: '+ that.cum.toUpperCase() +'</tr>')
+            $(divInfo).append('<th class="col-xs-12 text-center" style="background-color:#eee; color:#d31a2b; font-weight: bold;"> Usuario: '+ that.cum.toUpperCase() +'</th>')
             if(($($.parseHTML(that.response)).find("input:not(:button)")).length == 0)
               $(divInfo).append("Sin Información")
             else {
