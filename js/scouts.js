@@ -68,7 +68,7 @@ class CUMScout {
 ;(function(){
   document.getElementsByTagName("body")[0].innerHTML = "";
   document.getElementsByTagName("head")[0].innerHTML = "";
-  $('head').append('<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>');
+  $('head').append('<meta http-equiv="Content-Type" content="text/html; charset=ES"/>');
   var linkElem = document.createElement('link');
   document.getElementsByTagName('head')[0].appendChild(linkElem);
   linkElem.rel = 'stylesheet';
