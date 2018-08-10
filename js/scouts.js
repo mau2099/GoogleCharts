@@ -45,13 +45,13 @@ class CUMScout {
             that.response = data;
     	      let divInfo = document.createElement("tr")
             $(divInfo).addClass("row").addClass("cum-info");
-            $(divInfo).css("color", "black").css("border", "1px solid #d31a2b").css("margin", "1.2em").css("font-size", "12px");
+            $(divInfo).css("color", "black").css("margin", "1.2em").css("font-size", "12px");
             $(divInfo).append('<th class="col-xs-12 text-center" style="background-color:#eee; color:#d31a2b; font-weight: bold;" colspan="2"> Usuario: '+ that.cum.toUpperCase() +'</th>')
 			$(that.tableMaster).append(divInfo);
             if(($($.parseHTML(that.response)).find("input:not(:button)")).length == 0)
               $(that.tableMaster).append('<tr class="row" style="border-bottom: solid 1px #eee"><th class="col-xs-2">' + '' + '</th> <th class="col-xs-10"> ' + 'Sin Información' + '</th></tr>')
             else {
-				console.log($.parseHTML(that.response));
+				console.log(that.response);
               $($.parseHTML(that.response)).find("input:not(:button)").each((index, element) => {
                  $(that.tableMaster).append('<tr class="row" style="border-bottom: solid 1px #eee"><th class="col-xs-2">' + element.name + ': </th> <th class="col-xs-10"> ' + element.value + '</th></tr>')
               })
