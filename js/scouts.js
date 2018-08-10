@@ -68,13 +68,14 @@ class CUMScout {
 ;(function(){
   document.getElementsByTagName("body")[0].innerHTML = "";
   document.getElementsByTagName("head")[0].innerHTML = "";
-  $('head').append('<meta http-equiv="Content-Type" content="text/html; charset=ES"/>');
+  $('head').append('<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>');
+  setTimeout(function(){ console.log("waiting 1") }, 100);
   var linkElem = document.createElement('link');
   document.getElementsByTagName('head')[0].appendChild(linkElem);
   linkElem.rel = 'stylesheet';
   linkElem.type = 'text/css';
   linkElem.href = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
-  setTimeout(function(){ console.log("waiting") }, 300);
+  
   $("body").addClass("container");
   $("body").html('<div>Ingresar cada registro en lineas diferentes (máximo 50)</div><br/><textarea class="form-control" name="no-consider" id="cums" cols="50" rows="5"></textarea><br/><button class="btn btn-info" id="sendCUMS">Generar</button><button display="none" class="btn btn-info" id="btnExportar"  onclick="tableToExcel(\'tblScouts\', \'Info-Scouts\')">Exportar</button>')
   $("#btnExportar").css("display", "none");
