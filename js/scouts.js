@@ -117,7 +117,7 @@ class CUMScout {
 	  var base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) }
 	  var format = function(s, c) { return s.replace(/{(\w+)}/g, function(m, p) { return c[p]; }) }
 	  
-	  return function(table, name) => {
+	  return function(table, name) {
 		  if (!table.nodeType) table = document.getElementById(table)
 			  var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
 		  window.location.href = uri + base64(format(template, ctx))
