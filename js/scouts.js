@@ -1,6 +1,7 @@
 class CUMScout {
-  constructor(cum) {
+  constructor(cum, tableMaster) {
     this.cum = cum;
+	this.tableMaster = tableMaster;
     this.url = "http://ddiscouts.org.mx/regnal/conexion_regnal.asp";
     this.jsonForm = null;
     this.response = null;
@@ -42,7 +43,7 @@ class CUMScout {
           setTimeout(function(){
             console.log("success");
             that.response = data;
-    	      let divInfo = document.createElement("div")
+    	      let divInfo = document.createElement("table")
             $(divInfo).addClass("row").addClass("cum-info");
             $(divInfo).css("color", "black").css("border", "1px solid #d31a2b").css("margin", "1.2em").css("font-size", "12px");
             $(divInfo).append('<tr class="col-xs-12 text-center" style="background-color:#eee; color:#d31a2b; font-weight: bold;"> Usuario: '+ that.cum.toUpperCase() +'</tr>')
@@ -53,7 +54,7 @@ class CUMScout {
                  $(divInfo).append('<tr class="row" style="border-bottom: solid 1px #eee"><th class="col-xs-2">' + element.name + ': </th> <th class="col-xs-10"> ' + element.value + '</th></tr>')
               })
             }
-            $(divInfo).insertAfter("body");
+            $(tableMaster).append(divInfo);
           }, 500);
       },
       error: function (request, textStatus, errorThrown) {
@@ -95,11 +96,13 @@ class CUMScout {
     // $("body").append(divConsultando)
 	if($cums.length > 0){
 		let table = document.createElement("table")
+		
 		$cums.each((index, cum) => {
 		  // console.log(index + "-" +$cums.length);
 		  if(!(cum==undefined || cum == ""))
-			new CUMScout(cum);
+			new CUMScout(cum, table);
 		})
+		$(table).insertAfter("body");
 	}
     var myVar = setInterval(function(){ myTimer() }, 500);
     function myTimer() {
