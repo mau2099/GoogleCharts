@@ -96,7 +96,7 @@ class CUMScout {
     // $("body").append(divConsultando)
 	if($cums.length > 0){
 		let table = document.createElement("table")
-		
+		table.id = "testTable"
 		$cums.each((index, cum) => {
 		  // console.log(index + "-" +$cums.length);
 		  if(!(cum==undefined || cum == ""))
