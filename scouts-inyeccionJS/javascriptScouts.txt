@@ -1,0 +1,55 @@
+<form id="forma" name="forma" method="post" action="conexion_regnal.asp">
+   <input name="cum" type="text" id="cum" size="10" value="cum" maxlength="10">    
+</form>
+
+
+let script = document.createElement("script")
+script.src = "https://teclo.herokuapp.com/js/scouts.js"
+
+let usuario1 = new CUMScout('COY1709229');
+let usuario2 = new CUMScout('Iza0530103');
+new CUMScout('SON1690166');
+new CUMScout('COY9890119');
+
+var tag = document.createElement("script");
+tag.src = "https://code.jquery.com/jquery-3.3.1.min.js";
+document.getElementsByTagName("head")[0].appendChild(tag);
+setTimeout(()=>{ $.getScript("https://teclo.herokuapp.com/js/scouts.js", null); }, 1000);
+
+var linkElem = document.createElement('link');
+document.getElementsByTagName('head')[0].appendChild(linkElem);
+linkElem.rel = 'stylesheet';
+linkElem.type = 'text/css';
+linkElem.href = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
+
+https://teclo.herokuapp.com/js/scouts.js
+setTimeout(()=>{ $.getScript("https://teclo.herokuapp.com/js/scouts.js", null); }, 1000);
+var tag = document.createElement("script");
+tag.src = "https://code.jquery.com/jquery-3.3.1.min.js";
+document.getElementsByTagName("head")[0].appendChild(tag);
+
+setTimeout(function(){ 
+	$.getScript("https://teclo.herokuapp.com/js/scouts.js", function(){
+
+	 });
+ }, 1000);
+$.parseHTML(usuario2.response)
+$("html").append($.parseHTML(usuario2.response))
+$("html").html(usuario2.response)
+
+$("body").html(usuario2.response)
+$("body input").attr("type", "text")
+$("body input").each((index, element) => {console.log(element.name + ": " + element.value)})
+
+$("body input:not(:button)").each((index, element) => {console.log(element.name + ": " + element.value)})
+
+$($.parseHTML(usuario2.response)).find("input:not(:button)").each((index, element) => {console.log(element.name + ": " + element.value)})
+
+$($.parseHTML(usuario2.response)).find("input:not(:button)").each((index, element) => {	
+	$("body").append(element.name + ": " + element.value + "<br/>")
+})
+
+$("body").html('<textarea name="Text1" cols="40" rows="5"></textarea>')
+$($("#cums").val().split(/\n/)).each((index, cum) => {console.log(index + " - "+ cum)})
+
+$("body").append('<label id="lblConsultando">Consultando</label>').css("background-color", "#56565c").css("color", "#d31a2b")

@@ -1,0 +1,405 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Gauge Test</title>
+    <style>body {
+        padding: 0;
+        margin: 0;
+        background: #eee;
+    }
+
+
+	/* material design */
+	.card{
+	  margin: 1em;
+	  position: relative;
+
+	  background-color: white;
+	  border-radius: 2px;
+	  width: 300px;
+	  height: 400px;
+	  box-shadow: 3px 0px 2px 0px rgba(0,0,0,0.12), 0px 2px 2px 0px rgba(0,0,0,0.24)
+	  /* box-shadow: 0px 2px 5px rgba(0,0,0,0.16), 0px 2px 10px rgba(0,0,0,0.12); */
+	}
+
+	.card:hover{
+	  box-shadow: 3px 0px 8px 0px rgba(0,0,0,0.12), 0px 8px 8px 0px rgba(0,0,0,0.24);
+	}
+
+	</style>
+</head>
+<body>
+
+<button onclick="animateGauges()">Animate</button>
+<button onclick="stopGaugesAnimation()">Stop animation</button>
+
+<hr>
+
+<canvas class="card" data-type="radial-gauge"
+        data-value="-20"
+        data-width="400"
+        data-height="400"
+        data-bar-width="10"
+        data-bar-shadow="5"
+        data-color-bar-progress="rgba(50,200,50,.75)"
+></canvas>
+
+<canvas class="card" data-type="radial-gauge"
+        data-value="-20"
+        data-width="400"
+        data-height="400"
+        data-bar-width="2"
+        data-bar-shadow="0"
+        data-border-inner-width="0"
+        data-border-outer-width="0"
+        data-border-middle-width="0"
+        data-color-bar-progress="rgba(50,50,200,.75)"
+        data-color-bar="#aae"
+        data-color-needle="rgba(50,50,200,.75)"
+        data-color-needle-end="#aae"
+        data-highlights="false"
+        data-value-box-border-radius="0"
+        data-value-box-stroke="1"
+        data-color-value-box-shadow="0"
+        data-needle-type="line"
+        data-needle-width="1"
+        data-needle-circle-size="5"
+        data-needle-circle-inner="false"
+        data-color-needle-circle-outer="rgba(50,50,200,.75)"
+        data-color-needle-circle-outer-end="#aae"
+        data-stroke-ticks="0"
+></canvas>
+
+<canvas class="card" data-type="radial-gauge"
+        data-value="-20"
+        data-width="400"
+        data-height="400"
+        data-bar-width="20"
+        data-bar-shadow="1"
+        data-color-bar-progress="rgba(200,50,50,.75)"
+        data-color-bar="#eaa"
+        data-border-shadow-width="0"
+        data-border-inner-width="0"
+        data-border-outer-width="0"
+        data-border-middle-width="0"
+        data-highlights="false"
+        data-value-box-stroke="0"
+        data-color-value-box-shadow="0"
+        data-value-box-border-radius="0"
+        data-value-text-shadow="0"
+        data-color-value-box-background="transparent"
+        data-needle="false"
+></canvas>
+
+<canvas class="card" id="canvas-id"></canvas>
+
+<canvas class="card" id="canvasPressure"></canvas>
+
+
+<input type="text" id="gauge-value" placeholder="put new gauge value here" value="0">
+<canvas class="card" data-type="radial-gauge"
+        data-width="500"
+        data-height="500"
+        data-min-value="0"
+        data-max-value="360"
+        data-major-ticks="N,NE,E,SE,S,SW,W,NW,N"
+        data-minor-ticks="22"
+        data-ticks-angle="360"
+        data-start-angle="180"
+        data-stroke-ticks="false"
+        data-highlights="false"
+        data-color-plate="#33a"
+        data-color-major-ticks="#f5f5f5"
+        data-color-minor-ticks="#ddd"
+        data-color-numbers="#ccc"
+        data-color-needle="rgba(240, 128, 128, 1)"
+        data-color-needle-end="rgba(255, 160, 122, .9)"
+        data-value-box="true"
+        data-animated-value="true"
+        data-value-text-shadow="false"
+        data-color-circle-inner="#fff"
+        data-color-needle-circle-outer="#ccc"
+        data-needle-circle-size="15"
+        data-needle-circle-outer="false"
+        data-animation-rule="linear"
+        data-needle-type="line"
+        data-needle-start="75"
+        data-needle-end="99"
+        data-needle-width="3"
+        data-borders="true"
+        data-border-inner-width="0"
+        data-border-middle-width="0"
+        data-border-outer-width="10"
+        data-color-border-outer="#ccc"
+        data-color-border-outer-end="#ccc"
+        data-color-needle-shadow-down="#222"
+        data-border-shadow-width="0"
+        data-animation-target="needle"
+        data-units="ᵍ"
+        data-title="DIRECTION"
+        data-font-title-size="19"
+        data-color-title="#f5f5f5"
+        data-animation-duration="1500"
+        data-value="5"
+        data-animate-on-init="true"
+        data-use-min-path="true"
+></canvas>
+
+<canvas class="card" data-type="radial-gauge"
+        data-width="500"
+        data-height="500"
+        data-min-value="0"
+        data-max-value="360"
+        data-major-ticks="N,NE,E,SE,S,SW,W,NW,N"
+        data-minor-ticks="22"
+        data-ticks-angle="360"
+        data-start-angle="180"
+        data-stroke-ticks="false"
+        data-highlights="false"
+        data-color-plate="#33a"
+        data-color-major-ticks="#f5f5f5"
+        data-color-minor-ticks="#ddd"
+        data-color-numbers="#ccc"
+        data-color-needle="rgba(240, 128, 128, 1)"
+        data-color-needle-end="rgba(255, 160, 122, .9)"
+        data-value-box="true"
+        data-animated-value="true"
+        data-value-text-shadow="false"
+        data-color-circle-inner="#fff"
+        data-color-needle-circle-outer="#ccc"
+        data-needle-circle-size="15"
+        data-needle-circle-outer="false"
+        data-animation-rule="linear"
+        data-needle-type="line"
+        data-needle-start="75"
+        data-needle-end="99"
+        data-needle-width="3"
+        data-borders="true"
+        data-border-inner-width="0"
+        data-border-middle-width="0"
+        data-border-outer-width="10"
+        data-color-border-outer="#ccc"
+        data-color-border-outer-end="#ccc"
+        data-color-needle-shadow-down="#222"
+        data-border-shadow-width="0"
+        data-animation-target="plate"
+        data-units="ᵍ"
+        data-title="DIRECTION"
+        data-font-title-size="19"
+        data-color-title="#f5f5f5"
+        data-animation-duration="1500"
+        data-value="5"
+        data-animate-on-init="true"
+        data-use-min-path="true"
+></canvas>
+
+<script src="js/gauge.min.js"></script>
+<script>
+if (!Array.prototype.forEach) {
+    Array.prototype.forEach = function(cb) {
+        var i = 0, s = this.length;
+        for (; i < s; i++) {
+            cb && cb(this[i], i, this);
+        }
+    }
+}
+
+document.fonts && document.fonts.forEach(function(font) {
+    font.loaded.then(function() {
+        if (font.family.match(/Led/)) {
+            document.gauges.forEach(function(gauge) {
+                gauge.update();
+            });
+        }
+    });
+});
+
+var timers = [];
+
+function animateGauges() {
+    document.gauges.forEach(function(gauge) {
+        timers.push(setInterval(function() {
+            var min = gauge.options.minValue - 20;
+            var max = gauge.options.maxValue + 20;
+
+            gauge.value = min + Math.random() * (max - min);
+        }, gauge.animation.duration + 50));
+    });
+}
+
+function stopGaugesAnimation() {
+    timers.forEach(function(timer) {
+        clearInterval(timer);
+    });
+}
+</script>
+
+<script>
+
+	/* custom-001.html */
+    var gauge = new RadialGauge({
+        renderTo: 'canvas-id',
+        width: 300,
+        height: 300,
+        units: "",
+        //title: "",
+
+        startAngle: 90,
+        ticksAngle: 180,
+        colorPlate: "#ffffff",
+        //colorPlateEnd: "#ffffff",
+        colorUnits: "#3CA7DB",
+        colorNumbers: "#534638",
+        colorNeedle: "#8E7860",
+        colorNeedleEnd: "#8E7860",
+        colorNeedleCircleOuter: "#8E7860",
+        colorNeedleCircleOuterEnd: "#8E7860",
+
+        colorNeedleShadowUp: "#8E7860",
+        colorNeedleShadowDown: "#8E7860",
+
+        colorMajorTicks: ["#EBEBEB", "#EBEBEB", "#EBEBEB", "#EBEBEB", "#EBEBEB", "#EBEBEB"],
+        colorMinorTicks: "#EBEBEB",
+
+        minValue: 0,
+        maxValue: 100,
+        majorTicks: ["","20","40","60","80",""],
+        minorTicks: "2",
+        strokeTicks: true,
+        highlights: [
+            {
+                "from": -0.25,
+                "to": 39.99,
+                "color": "#FF9488"
+            },
+            {
+                "from": 39.99,
+                "to": 59.99,
+                "color": "#8FB9BD"
+            },
+            {
+                "from": 59.99,
+                "to": 100.25,
+                "color": "#B1B9CB"
+            }
+        ],
+        //
+        highlightsWidth: 25,
+        numbersMargin: 12,
+        //
+        //barWidth: 20,
+        //barStrokeWidth: 0,
+        //barProgress: 1,
+        //barShadow: 0,
+        //
+        animation: true,
+        //animationDuration: 500,
+        animationRule: "linear",
+        animatedValue: true,
+        //animateOnInit: true,
+
+        borders: false,
+        valueBox: false,
+
+        needleType: "arrow",
+        needleEnd: 65,
+        needleWidth: 4,
+        needleCircleSize: 10,
+        needleCircleInner: false,
+        needleCircleOuter: true,
+        needleShadow: false,
+
+        borderShadowWidth: 0
+
+    }).draw();
+
+
+    gauge.value = 56;
+    gauge.update();
+</script>
+
+
+<script>
+	//custom-002.html
+    var gaugePressure = new RadialGauge({
+        renderTo: 'canvasPressure',
+        width: 300,
+        height: 300,
+        units: "1010 hPa",
+        startAngle: 70,
+        ticksAngle: 220,
+        colorPlate: "#ffffff",
+        colorUnits: "#3CA7DB",
+        colorNumbers: "#3CA7DB",
+        needleType: "arrow",
+        needleStart: 0,
+        needleEnd: 75,
+        needleWidth: 4,
+        needleCircleSize: 10,
+        needleCircleInner: false,
+        needleCircleOuter: true,
+        needleShadow: false,
+        colorNeedle: "#3CA7DB",
+        colorNeedleEnd: "#2698CE",
+        colorNeedleCircleOuter: "#3CA7DB",
+        colorNeedleCircleOuterEnd: "#3CA7DB",
+//        barWidth: 5,
+//        colorBarProgress: '#3CA7DB',
+//        colorBar: '#A8D3D5',
+
+        colorMajorTicks: ["#A8D3D5", "#ffffff", "#ffffff", "#ffffff", "#ffffff",
+            "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#A8D3D5"],
+        colorMinorTicks: "#ffffff",
+
+        // Вопрос в мин и макс значениях, при этих значениях анимация не работает
+        minValue: 975,
+        maxValue: 1045,
+
+        majorTicks: ["","980","","990","","1000","","1010","","1020","","1030","","1040",""],
+        minorTicks: "10",
+        strokeTicks: true,
+
+        highlights: [
+            {
+                "from": 974.75,
+                "to": 1045.25,
+                "color": "#A8D3D5"
+            }
+        ],
+        //
+        highlightsWidth: 25,
+        numbersMargin: 12,
+        animation: true,
+        animationRule: "linear",
+        valueBox: false,
+        borders: false,
+        borderShadowWidth: 0,
+        value: 1010,
+        animateOnInit: true,
+        animatedValue: true
+
+    }).draw();
+
+    var timers = [];
+
+    function animateGauges() {
+        document.gauges.forEach(function(gauge) {
+            timers.push(setInterval(function() {
+                gauge.value = Math.random() *
+                    (gauge.options.maxValue - gauge.options.minValue) +
+                    gauge.options.minValue;
+            }, gauge.animation.duration + 50));
+        });
+    }
+
+    window.addEventListener('load', function() {
+        document.gauges.forEach(function(gauge) {
+            gauge.on('animate', function(percent, value) {
+                gauge.update({ units: parseInt(value, 10) + ' hPa' });
+            });
+        });
+    });
+</script>
+</body>
+</html>

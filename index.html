@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es-MX">
+<head>
+<title>Charts Demo - Teclo 2018</title>
+<meta charset="utf-8">
+<meta content="demo licitacion teclo mexicana 2018" name="description">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="8" data-name="image-counter">
+<meta content="Mon, 01 Jan 1990 12:00:00 GMT" http-equiv="Expires">
+<meta http-equiv="PRAGMA" value="NO-CACHE">
+<link href="/favicon.ico" rel="icon" type="image/x-icon">
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Great+Vibes|Roboto" rel="stylesheet">
+<link href="/css/normalize.css" rel="stylesheet">
+<link href="/css/styles.css" rel="stylesheet">
+</head>
+<body>
+<!--[if lt E9]>
+<p class="browseupgrade">
+Estás utilizando un navegador
+<strong>desactualizado.</strong>
+Por favor
+<a href="http://browsehappy.com">
+actualiza tu navegador
+</a>
+para una mejor experiencia
+</p>
+<![endif]-->
+<div class="video-container">
+<video autoplay class="video-home" height="720" loop muted poster="/multimedia/videos/video.jpg" width="1280">
+<source src="/multimedia/videos/video.mp4" type="video/mp4">
+<source src="/multimedia/videos/video.webm" type="video/webm">
+</video>
+</div>
+<div class="row full-height middle-xs center-xs relative up color-black" id="home">
+<div class="col-xs-12">
+<div class="box">
+<img class="logo card" src="/multimedia/imgs/LogoTeclo.jpg" width="500px">
+</div>
+</div>
+<nav class="fixed top right color-black navigation" id="navigation">
+<ul class="list-inline">
+<li class="font-size-medium">
+<a href="#home">Inicio</a>
+</li>
+<li class="font-size-medium">
+<a href="#services">Servicios</a>
+</li>
+<li class="font-size-medium">
+<a href="#dashboard">Dashboard</a>
+</li>
+<li class="font-size-medium">
+<a href="#contact">Contacto</a>
+</li>
+<li class="font-size-medium">
+<a href="#map">Ubicación</a>
+</li>
+<!-- %li Inicio -->
+<!-- %li Menu -->
+<!-- %li Galeria -->
+<!-- %li Contacto -->
+<!-- %li Como llegar -->
+</ul>
+</nav>
+<div class="absolute color-black bg-color-grey large-padding full-width" id="description">
+<div class="row middle-xs center-xs">
+  <div class="col-xs-4 col-sm-4 white-text font-size-medium" id="origrama">
+    <div class="box">
+      <img class="origrama" src="/multimedia/imgs/Origramas.png" width="60%">
+    </div>
+  </div>
+  <div class="col-xs-8 col-sm-8 hidden" id="sticky-navigation">
+    <div class="box">
+      <div class="row middle-xs center-xs">
+        <div class="col-xs-12 col-sm-6">
+          <div class="box">
+            <div class="sticky-item sticky-title">Tablero de Control</div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="box">
+            <img class="logo-sticky card sticky-item" src="/multimedia/imgs/LogoTeclo.jpg" width="150px">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="charts" id="dashboard">
+  <div class="row middle-xs center-xs chart-tools hidden">
+    <div class="box">
+      <button id="btnAnimateCharts" class="btn btn-success chart-button" >Animar</button>
+      <button id="btnStopAnimation" class="btn btn-danger chart-button hidden">Detener Animación</button>
+    </div>
+  </div>
+
+  <div class="row top-xs center-xs chart-row">
+    <div class="col-xs-12 col-sm-12 col-md-3 chart-container">
+      <div class="chart-title">Imágenes Captadas</div>
+      <div id="curve_chart" class="card" ></div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3 chart-container">
+      <div class="chart-title">Evaluación Complementa Datos Propietario</div>
+      <div id="chart_div" class="card"></div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3 chart-container">
+      <div class="chart-title">Autorización</div>
+      <div id="barchart_values" class="card" ></div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3 chart-container">
+      <div class="chart-title">Asignación de Folio</div>
+      <div id="piechart_3d" class="card" ></div>
+    </div>
+  </div>
+
+  <div class="row top-xs center-xs chart-row">
+    <div class="col-xs-12 col-sm-12 col-md-3 chart-container">
+      <div class="chart-title">Línea de Captura</div>
+      <div id="gauge_charts" class="card"></div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3 chart-container">
+      <div class="chart-title">Firma Electrónica</div>
+      <div id="barchart_firma" class="card" ></div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3 chart-container">
+      <div class="chart-title">Complementa Información Adicional</div>
+      <div id="piechart_3d_info_adicional" class="card" ></div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3 chart-container">
+      <div class="chart-title">Creación de Boletas</div>
+      <div id="scatter_chart_boletas" class="card" ></div>
+    </div>
+  </div>
+
+  <div class="row top-xs center-xs chart-row">
+    <div class="col-xs-12 col-sm-12 col-md-6 chart-container">
+      <div class="chart-title">Gestión de Boletas</div>
+      <div id="chart_bar_impBoletas" class="card" ></div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 chart-container">
+      <div class="chart-title">Publicación de Infracciones</div>
+      <div id="bubble_chart_infracciones" class="card" ></div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-3 chart-container hidden">
+      <div class="chart-title">Reparto de Boletas</div>
+      <div id="regions_div" class="card" style="height:250px" ></div>
+    </div>
+  </div>
+
+  <div class="row top-xs center-xs chart-row hidden">
+      <div class="col-xs-12 col-sm-6 col-lg-4 chart-container">
+        <div class="box">
+          <div class="chart-title">Fotos Tomadas</div>
+          <canvas class="card relative"
+                  data-type="radial-gauge"
+                  data-value="-20"
+                  data-width="400"
+                  data-height="400"
+                  data-bar-width="10"
+                  data-bar-shadow="5"
+                  data-color-bar-progress="rgba(50,200,50,.75)"
+          ></canvas>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4 chart-container">
+        <div class="box">
+          <div class="chart-title">Evaluación</div>
+          <canvas class="card relative"
+                data-type="radial-gauge"
+                data-value="-20"
+                data-width="400"
+                data-height="400"
+                data-bar-width="2"
+                data-bar-shadow="0"
+                data-border-inner-width="0"
+                data-border-outer-width="0"
+                data-border-middle-width="0"
+                data-color-bar-progress="rgba(50,50,200,.75)"
+                data-color-bar="#aae"
+                data-color-needle="rgba(50,50,200,.75)"
+                data-color-needle-end="#aae"
+                data-highlights="false"
+                data-value-box-border-radius="0"
+                data-value-box-stroke="1"
+                data-color-value-box-shadow="0"
+                data-needle-type="line"
+                data-needle-width="1"
+                data-needle-circle-size="5"
+                data-needle-circle-inner="false"
+                data-color-needle-circle-outer="rgba(50,50,200,.75)"
+                data-color-needle-circle-outer-end="#aae"
+                data-stroke-ticks="0"
+                ></canvas>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 chart-container">
+        <div class="chart-title">Autorización</div>
+        <canvas class="card relative"
+                data-type="radial-gauge"
+                data-value="-20"
+                data-width="400"
+                data-height="400"
+                data-bar-width="20"
+                data-bar-shadow="1"
+                data-color-bar-progress="rgba(200,50,50,.75)"
+                data-color-bar="#eaa"
+                data-border-shadow-width="0"
+                data-border-inner-width="0"
+                data-border-outer-width="0"
+                data-border-middle-width="0"
+                data-highlights="false"
+                data-value-box-stroke="0"
+                data-color-value-box-shadow="0"
+                data-value-box-border-radius="0"
+                data-value-text-shadow="0"
+                data-color-value-box-background="transparent"
+                data-needle="false"
+        ></canvas>
+      </div>
+  </div>
+  <div class="row top-xs center-xs chart-row hidden">
+    <div class="col-xs-12 col-sm-6 col-md-3 chart-container">
+        <div class="chart-title">Asignación</div>
+          <canvas class="card"
+                data-width="400"
+                data-height="400"
+                id="canvas-id"></canvas>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3 chart-container">
+        <div class="chart-title">Línea Captura</div>
+        <canvas class="card"
+              id="canvasPressure"></canvas>
+      </div>
+  </div>
+</div>
+
+<div id="location">
+<div id="map"></div>
+<div class="row center-xs middle-xs">
+  <div class="box col-xs-12">
+    <div class="bg-black large-padding white-text text-center font-size-small" id="mesaageMap"></div>
+  </div>
+</div>
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="/js/vendor/modernizr-2.8.3.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvgr4nBfHofnBwObClBn4789WWGqA-oFs"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<!-- <script src="/dist/gauge.min.js"></script>
+<script src="/js/charts.js"></script>
+<script src="/js/google-charts.js"></script> -->
+<script src="/dist/app.js"></script>
+</html>

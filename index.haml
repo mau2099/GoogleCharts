@@ -1,0 +1,160 @@
+-gallery_images = ["club-sandwich.jpg","combo.jpg","hamburger.jpg","hot-cakes.jpg","panini.jpg","papas.jpg","hot-cakes.jpg","panini.jpg","papas.jpg"]
+-menu = [{title:"Inicio", link: "#home"}, {title:"Servicios", link: "#menu"}, {title:"Dashboard", link: "#gallery"}, {title:"Contacto", link: "#contact"}, {title:"Ubicación", link: "#map"}]
+!!!5
+%html{class:"no-js", lang:"es-MX"}
+  %head
+    %title La mejor comida en restaurant
+    %meta{charset:"utf-8"}
+    %meta{name:"description", content:"demo licitacion teclo mexicana 2018"}
+    %meta{name:"viewport", content:"width=device-width, initial-scale=1"}
+    %meta{:"data-name" => "image-counter", content:"#{gallery_images.size - 1}"}
+    %meta{:"http-equiv"=>"Expires", content:"Mon, 01 Jan 1990 12:00:00 GMT"}
+    %meta{:"http-equiv"=>"PRAGMA", value:"NO-CACHE"}
+    %link{rel:"icon", href:"/favicon.ico", type:"image/x-icon"}
+    %link{rel:"shortcut icon", href:"/favicon.ico", type:"image/x-icon"}
+    %link{rel:"stylesheet", href:"//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"}
+    %link{rel:"stylesheet", href:"//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"}
+    %link{rel:"stylesheet", href:"https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css"}
+    %link{rel:"stylesheet", href:"https://fonts.googleapis.com/css?family=Raleway|Roboto"}
+    %link{rel:"stylesheet", href:"https://fonts.googleapis.com/css?family=Great+Vibes|Roboto"}
+    %link{rel:"stylesheet", href:"/css/normalize.css"}
+    %link{rel:"stylesheet", href:"/css/styles.css"}
+
+  %body
+    ="<!--[if lt E9]>"
+    %p{class:"browseupgrade"}
+      Estás utilizando un navegador
+      %strong desactualizado.
+      Por favor
+      %a{href:"http://browsehappy.com"}
+        actualiza tu navegador
+      para una mejor experiencia
+    ="<![endif]-->"
+    .video-container
+      %video.video-home{autoplay:true, loop:true,  muted:true, width:"1280", height:"720", poster:"/multimedia/videos/video.jpg"}
+        %source{src:"/multimedia/videos/video.mp4", type:"video/mp4"}
+        %source{src:"/multimedia/videos/video.webm", type:"video/webm"}
+    .row.full-height.middle-xs.center-xs.relative.up.color-black#home
+      .col-xs-12
+        .box
+          %img.logo.card{src:"/multimedia/imgs/LogoTeclo.jpg", width:"550px"}
+          -# %h1.titleH1.raleway.no-margin teclo
+          -# %p.white-text
+          -#   %i.glyphicon.glyphicon-time
+          -#     %span.white-text#isOpen Abierto
+      %nav.fixed.top.right.color-black.navigation#navigation
+        %ul.list-inline
+          -menu.each do |item|
+            %li.font-size-medium
+              %a{href:item[:link]}= item[:title]
+          /%li Inicio
+          /%li Menu
+          /%li Galeria
+          /%li Contacto
+          /%li Como llegar
+      .absolute.color-black.bg-color-grey.large-padding.full-width#description
+        .row.middle-xs.center-xs
+          .col-xs-7.col-sm-6.white-text.font-size-medium
+            .box
+              %img.origrama{src:"/multimedia/imgs/Origramas.png", width:"40%" }
+          .col-xs.hidden#sticky-navigation
+            .box
+              %nav.text-right.navigation#responsive-nav
+                %i.glyphicon.glyphicon-menu-hamburger.glyphicon-remove.white-text.subtitle.font-size-medium#menu-opener
+                %ul.list-inline
+                  -menu.each do |item|
+                    %li
+                      %a.menu-link.font-size-medium{href:item[:link]}= item[:title]
+    .text-center.relative#menu
+      .absolute.bg-white#menu-title
+        %h2.raleway#title Menú
+      -menu_photos = [{name: "Club Sandwich", image: "club-sandwich", pricing: "10.00"},
+        {name: "Combo", image: "combo", pricing: "10.00"},
+        {name: "Hamburger", image: "hamburger", pricing: "10.00"},
+        {name: "Hot Cakes", image: "hot-cakes", pricing: "10.00"},
+        {name: "Panini", image: "panini", pricing: "10.00"},
+        {name: "Papas", image: "papas", pricing: "10.00"},
+        {name: "Club Sandwich", image: "club-sandwich", pricing: "10.00"},
+        {name: "Combo", image: "combo", pricing: "10.00"},]
+      .row
+        -menu_photos.each do |photo|
+          .col-md-4.col-lg-3.col-sm-6.col-xs-12.food{style:"background-image:url(/multimedia/imgs/food/#{photo[:image]}-thumb.jpg)"}
+            .screen
+              .row.middle-xs.full-height
+                .col-xs-12
+                  %h3.titleH1.white-text= photo[:name]
+                  %p.no-margin.white-text= photo[:pricing] + " USD"
+    #gallery
+      .inner.full-height
+        -gallery_images.each do |image|
+          .image{style:"background-image:url(/multimedia/imgs/food/#{image});"}
+    //#resumen{style:"height:200px; width:80%; background-color:red; margin-left:auto; margin-right:auto;"}
+    .container
+      .card.bg-white.text-center.relative
+        %h3.font-size-medium.font-weight-slim
+          En
+          %strong.raleway Restaurante Super
+          cocinar es un agasajo
+          %strong.raleway Sobretodo las carnes
+        %p
+          Tengo un catedral y varias capillitas
+          El requisito esque esten bonitas
+          Se aceptan güeras y morenitas
+          Trigueñas altas y chaparitas
+          Güercas traje para la fiesta
+          Un ritmo para acasajarse dense la media vuelta
+          Que no les des vergüenza pegarse de reversa
+          Visiten a los machos pa que pagen la cerveza
+          Olor cereza trae buena suerte
+          Vuelvan pa la mesa y dejenlos calientes
+          Que en este ambiente la que se cotisa
+          Se va de blanco a escuchar la misa
+          Mami mueve el cucu que tu cucu
+          Esta como pa'l gangster
+          Mami mueve el cucu que tu cucu
+          Esta como pa darle
+          Mami mueve el cucu que tu cucu
+          Esta como pa'l gangster
+          Mami mueve el cucu que tu cucu
+          Esta como pa darle
+          %strong.raleway.font-size-medium - Cartel de Santa -
+          .large-padding.bg-black.white-text.text-center También es posible acceder al sitio sin internet, en una versión compresa
+    .bg-black.white-text.full-height#contact
+      .row.middle-xs.full-height
+        .col-xs-12
+          .box
+            .text-center.font-size-medium.white-text#info-form Completa los campos y presiona enter para enviar el formulario
+            %br
+            %form{action:"https://formspree.io/fgc.2007@hotmail.com", method:"POST", id:"contact-form", class:"step-form"}
+              .row.center-xs
+                .col-xs-12.col-sm-2.col-md-1.text-center.first-sm
+                  .box
+                    -3.times do |i|
+                      -if i == 0
+                        .path-step.active
+                      -else
+                        .path-step
+                .col-xs-12.col-sm-7.first-xs
+                  .box
+                    %fieldset.step.active
+                      %input{type:"email", name:"correo", class:"input", placeholder:"escribe tu correo...", required:true}
+                    %fieldset.step
+                      %input{type:"text", name:"nombre", class:"input", placeholder:"escribe tu nombre...", required:true}
+                    %fieldset.step
+                      %textarea{name:"mensaje", class:"input", placeholder:"escribe aquí tu mensaje...", required:true}
+                .col-xs-12.col-sm-9.col-lg-8.text-right
+                  .box
+                    %button{type:"submit", class:"btn btn-info"} Enviar
+    #location
+      #map
+      #mesaageMap.bg-black.large-padding.white-text.text-center -
+  %script{src:"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"}
+  %script{src:"/js/vendor/modernizr-2.8.3.min.js"}
+  %script{src:"https://code.jquery.com/jquery-1.12.0.min.js"}
+  %script{src:"//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"}
+  %script{src:"https://maps.googleapis.com/maps/api/js?key=AIzaSyDvgr4nBfHofnBwObClBn4789WWGqA-oFs"}
+  %script{src:"/dist/app.js"}
+  -# %script{src:"/dist/maps-dist.js"}
+  -# %script{src:"/dist/form_object-dist.js"}
+  -# %script{src:"/dist/main-dist.js"}
+  -# %script{src:"/dist/step-form-dist.js"}
