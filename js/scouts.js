@@ -54,7 +54,7 @@ class CUMScout {
                  $(divInfo).append('<tr class="row" style="border-bottom: solid 1px #eee"><th class="col-xs-2">' + element.name + ': </th> <th class="col-xs-10"> ' + element.value + '</th></tr>')
               })
             }
-            $(tableMaster).append(divInfo);
+            $(that.tableMaster).append(divInfo);
           }, 500);
       },
       error: function (request, textStatus, errorThrown) {
