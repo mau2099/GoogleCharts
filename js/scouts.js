@@ -74,7 +74,7 @@ class CUMScout {
   linkElem.type = 'text/css';
   linkElem.href = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
   $("body").addClass("container");
-  $("body").html('<div>Ingresar cada registro en lineas diferentes (máximo 50)</div><br/><textarea class="form-control" name="no-consider" id="cums" cols="50" rows="5"></textarea><br/><button class="btn btn-info" id="sendCUMS">Generar</button><button display="none" class="btn btn-info" id="btnExportar" tableToExcel("tblScouts", "Info Scouts")>Exportar</button>')
+  $("body").html('<div>Ingresar cada registro en lineas diferentes (máximo 50)</div><br/><textarea class="form-control" name="no-consider" id="cums" cols="50" rows="5"></textarea><br/><button class="btn btn-info" id="sendCUMS">Generar</button><button display="none" class="btn btn-info" id="btnExportar"  onclick="tableToExcel("tblScouts", "Info Scouts")" >Exportar</button>')
   $("#btnExportar").css("display", "none");
   // $("#iframeScouts").contents().find("html").html("");
   // $("#iframeScouts").contents().find("html").html('<textarea name="no-consider" id="cums" cols="40" rows="5"></textarea><br/><button id="sendCUMS">Generar</button>')
