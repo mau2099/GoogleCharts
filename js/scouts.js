@@ -49,7 +49,7 @@ class CUMScout {
             $(divInfo).append('<th class="col-xs-12 text-center" style="background-color:#eee; color:#d31a2b; font-weight: bold;" colspan="2"> Usuario: '+ that.cum.toUpperCase() +'</th>')
 			$(that.tableMaster).append(divInfo);
             if(($($.parseHTML(that.response)).find("input:not(:button)")).length == 0)
-              $(that.tableMaster).append('<tr class="row" style="border-bottom: solid 1px #eee"><th class="col-xs-2">' + '' + ': </th> <th class="col-xs-10"> ' + 'Sin Información' + '</th></tr>')
+              $(that.tableMaster).append('<tr class="row" style="border-bottom: solid 1px #eee"><th class="col-xs-2">' + '' + '</th> <th class="col-xs-10"> ' + 'Sin Información' + '</th></tr>')
             else {
               $($.parseHTML(that.response)).find("input:not(:button)").each((index, element) => {
                  $(that.tableMaster).append('<tr class="row" style="border-bottom: solid 1px #eee"><th class="col-xs-2">' + element.name + ': </th> <th class="col-xs-10"> ' + element.value + '</th></tr>')
@@ -74,6 +74,7 @@ class CUMScout {
   linkElem.rel = 'stylesheet';
   linkElem.type = 'text/css';
   linkElem.href = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
+  setTimeout(function(){ console.log("waiting") }, 300);
   $("body").addClass("container");
   $("body").html('<div>Ingresar cada registro en lineas diferentes (máximo 50)</div><br/><textarea class="form-control" name="no-consider" id="cums" cols="50" rows="5"></textarea><br/><button class="btn btn-info" id="sendCUMS">Generar</button><button display="none" class="btn btn-info" id="btnExportar"  onclick="tableToExcel(\'tblScouts\', \'Info-Scouts\')">Exportar</button>')
   $("#btnExportar").css("display", "none");
