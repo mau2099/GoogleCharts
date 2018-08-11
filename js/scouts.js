@@ -51,7 +51,7 @@ class CUMScout {
             if(($($.parseHTML(that.response)).find("input:not(:button)")).length == 0)
               $(that.tableMaster).append('<tr class="row" style="border-bottom: solid 1px #eee"><th class="col-xs-2">' + '' + '</th> <th class="col-xs-10"> ' + 'Sin Informacion' + '</th></tr>')
             else {
-			  // console.log($.parseHTML(that.response))
+			  console.log($.parseHTML(that.response))
 			  let tableMaster = document.createElement("table")
 			  let tableString = "";
 			  let flag = 0;
