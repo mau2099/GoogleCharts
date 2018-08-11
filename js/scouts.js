@@ -55,7 +55,7 @@ class CUMScout {
 			  let tableMaster = document.createElement("table")
 			  let tableString = "";
 			  let flag = 0;
-			  $.each($(temp1).find("span"), (index, value)=> {
+			  $.each($.parseHTML(that.response).find("span"), (index, value)=> {
 				  if(flag >= 2){
 					  flag = 0;
 					  $(that.tableMaster).append(tableString)
