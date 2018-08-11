@@ -58,7 +58,7 @@ class CUMScout {
 			  let temp1 = $.parseHTML(that.response)
 			  $.each($(temp1).find("span"), (index, value)=> {
 				  
-				  console.log(index + " - " + $(value).text())
+				  console.log(index + " - " + $(value).text().trim())
 				  if(flag >= 2){
 					  flag = 0;
 					  $(that.tableMaster).append(tableString)
@@ -66,7 +66,7 @@ class CUMScout {
 					  }
 				  if(index == 0 || index == 1)
 					  return;
-				  let spanText = $(value).text();
+				  let spanText = $(value).text().trim();
 				  if(index % 2 == 0)
 					  tableString += "<tr class='row' style='border-bottom: solid 1px #eee'><th class='col-xs-2'>" + spanText + "</th>"
 				  else
