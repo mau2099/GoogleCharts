@@ -43,7 +43,7 @@ class CUMScout {
           setTimeout(function(){
             console.log("success");
             that.response = data;
-    	      let divInfo = document.createElement("tr")
+    	    let divInfo = document.createElement("tr")
             $(divInfo).addClass("row").addClass("cum-info");
             $(divInfo).css("color", "black").css("margin", "1.2em").css("font-size", "12px");
             $(divInfo).append('<th class="col-xs-12 text-center" style="background-color:#eee; color:#d31a2b; font-weight: bold;" colspan="2"> Usuario: '+ that.cum.toUpperCase() +'</th>')
@@ -51,7 +51,26 @@ class CUMScout {
             if(($($.parseHTML(that.response)).find("input:not(:button)")).length == 0)
               $(that.tableMaster).append('<tr class="row" style="border-bottom: solid 1px #eee"><th class="col-xs-2">' + '' + '</th> <th class="col-xs-10"> ' + 'Sin Información' + '</th></tr>')
             else {
-				console.log($.parseHTML(that.response));
+			  
+			  let tableMaster = document.createElement("table")
+			  let tableString = "";
+			  let flag = 0;
+			  $.each($(temp1).find("span"), (index, value)=> {
+				  if(flag >= 2){
+					  flag = 0;
+					  $(that.tableMaster).append(tableString)
+					  tableString = "";
+					  }
+				  if(index == 0 || index == 1)
+					  return;
+				  let spanText = $(value).text();
+				  if(index % 2 == 0)
+					  tableString += "<tr class='row' style='border-bottom: solid 1px #eee'><th class='col-xs-2'>" + spanText + ": </th>"
+				  else
+					  tableString += "<th class='col-xs-10'>" + spanText + "</th></tr>"
+				  flag++
+			  })
+			  
               $($.parseHTML(that.response)).find("input:not(:button)").each((index, element) => {
                  $(that.tableMaster).append('<tr class="row" style="border-bottom: solid 1px #eee"><th class="col-xs-2">' + element.name + ': </th> <th class="col-xs-10"> ' + element.value + '</th></tr>')
               })
