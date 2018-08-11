@@ -103,6 +103,7 @@ class CUMScout {
   // $("#iframeScouts").contents().find("html").html("");
   // $("#iframeScouts").contents().find("html").html('<textarea name="no-consider" id="cums" cols="40" rows="5"></textarea><br/><button id="sendCUMS">Generar</button>')
   $("#sendCUMS").on("click", ()=>{
+	 $("#tblScouts").remove()
     if($(".cum-info")){
       $(".cum-info").html("")
       $(".cum-info").attr("style", "")
