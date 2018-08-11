@@ -41,7 +41,7 @@ class CUMScout {
       data: this.jsonForm,
       success: function(data, textStatus, request){
           setTimeout(function(){
-            console.log("success");
+            // console.log("success");
             that.response = data;
     	    let divInfo = document.createElement("tr")
             $(divInfo).addClass("row").addClass("cum-info");
@@ -51,7 +51,7 @@ class CUMScout {
             if(($($.parseHTML(that.response)).find("input:not(:button)")).length == 0)
               $(that.tableMaster).append('<tr class="row" style="border-bottom: solid 1px #eee"><th class="col-xs-2">' + '' + '</th> <th class="col-xs-10"> ' + 'Sin Informacion' + '</th></tr>')
             else {
-			  console.log($.parseHTML(that.response))
+			  // console.log($.parseHTML(that.response))
 			  let tableMaster = document.createElement("table")
 			  let tableString = "";
 			  let flag = 0;
@@ -90,7 +90,7 @@ class CUMScout {
   document.getElementsByTagName("body")[0].innerHTML = "";
   document.getElementsByTagName("head")[0].innerHTML = "";
   $('head').append('<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>');
-  setTimeout(function(){ console.log("waiting 1") }, 100);
+  // setTimeout(function(){ console.log("waiting 1") }, 100);
   var linkElem = document.createElement('link');
   document.getElementsByTagName('head')[0].appendChild(linkElem);
   linkElem.rel = 'stylesheet';
@@ -98,7 +98,7 @@ class CUMScout {
   linkElem.href = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
   
   $("body").addClass("container");
-  $("body").html('<div>Ingresar cada registro en lineas diferentes (máximo 50)</div><br/><textarea class="form-control" name="no-consider" id="cums" cols="50" rows="5"></textarea><br/><button class="btn btn-info" id="sendCUMS">Generar</button><button display="none" class="btn btn-info" id="btnExportar"  onclick="tableToExcel(\'tblScouts\', \'Info-Scouts\')">Exportar</button>')
+  $("body").html('<div>Ingresar cada registro en lineas diferentes (maximo 50)</div><br/><textarea class="form-control" name="no-consider" id="cums" cols="50" rows="5"></textarea><br/><button class="btn btn-info" id="sendCUMS">Generar</button><button display="none" class="btn btn-info" id="btnExportar"  onclick="tableToExcel(\'tblScouts\', \'Info-Scouts\')">Exportar</button>')
   $("#btnExportar").css("display", "none");
   // $("#iframeScouts").contents().find("html").html("");
   // $("#iframeScouts").contents().find("html").html('<textarea name="no-consider" id="cums" cols="40" rows="5"></textarea><br/><button id="sendCUMS">Generar</button>')
