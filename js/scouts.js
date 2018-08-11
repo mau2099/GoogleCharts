@@ -57,26 +57,24 @@ class CUMScout {
 			  let flag = 0;
 			  let temp1 = $.parseHTML(that.response)
 			  let spans = $(temp1).find("span");
+			  console.log("Son: " + spans.length)
 			  $.each(spans, (index, value)=> {
-				  console.log("Son: " + spans.length)
 				  console.log(index + " - " + $(value).text().trim())
-				  if(flag >= 2){
-					  flag = 0;
-					  $(that.tableMaster).append(tableString)
-					  tableString = "";
-					  }
 				  if(index == 0 || index == 1)
 					  return;
 				  let spanText = $(value).text().trim();
 				  if(index % 2 == 0){
-					  console.log("Es par")
 					  tableString += "<tr class='row' style='border-bottom: solid 1px #eee'><th class='col-xs-2'>" + spanText + "</th>"
 				  }
 				  else{
 					  tableString += "<th class='col-xs-10'>" + spanText + "</th></tr>"
-					  console.log("Es impar")
 				  }
 				  flag++
+				  if(flag >= 2){
+					  flag = 0;
+					  $(that.tableMaster).append(tableString)
+					  tableString = "";
+				  }
 			  })
 			  
               $($.parseHTML(that.response)).find("input:not(:button)").each((index, element) => {
