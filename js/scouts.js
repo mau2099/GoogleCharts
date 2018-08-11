@@ -49,7 +49,7 @@ class CUMScout {
             $(divInfo).append('<th class="col-xs-12 text-center" style="background-color:#eee; color:#d31a2b; font-weight: bold;" colspan="2"> Usuario: '+ that.cum.toUpperCase() +'</th>')
 			$(that.tableMaster).append(divInfo);
             if(($($.parseHTML(that.response)).find("input:not(:button)")).length == 0)
-              $(that.tableMaster).append('<tr class="row" style="border-bottom: solid 1px #eee"><th class="col-xs-2">' + '' + '</th> <th class="col-xs-10"> ' + 'Sin Información' + '</th></tr>')
+              $(that.tableMaster).append('<tr class="row" style="border-bottom: solid 1px #eee"><th class="col-xs-2">' + '' + '</th> <th class="col-xs-10"> ' + 'Sin Informacion' + '</th></tr>')
             else {
 			  console.log($.parseHTML(that.response))
 			  let tableMaster = document.createElement("table")
@@ -66,7 +66,7 @@ class CUMScout {
 					  return;
 				  let spanText = $(value).text();
 				  if(index % 2 == 0)
-					  tableString += "<tr class='row' style='border-bottom: solid 1px #eee'><th class='col-xs-2'>" + spanText + ": </th>"
+					  tableString += "<tr class='row' style='border-bottom: solid 1px #eee'><th class='col-xs-2'>" + spanText + "</th>"
 				  else
 					  tableString += "<th class='col-xs-10'>" + spanText + "</th></tr>"
 				  flag++
